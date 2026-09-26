@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mina Developer | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0f0f13;
+    --bg-2: #16161d;
+    --card: #1c1c26;
+    --purple: #8b5cf6;
+    --blue: #3b82f6;
+    --text: #ffffff;
+    --muted: #a1a1aa;
+    --border: #2a2a35;
+  }
+
+  body {
+    font-family: 'Cairo', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(139,92,246,0.15), transparent 70%);
+    z-index: -1;
+  }
+  body::after {
+    content: '';
+    position: fixed;
+    bottom: -30%;
+    left: -20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(59,130,246,0.12), transparent 70%);
+    z-index: -1;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(15,15,19,0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+  }
+  .logo {
+    font-size: 1.4rem;
+    font-weight: 900;
+    background: linear-gradient(90deg, var(--purple), var(--blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .nav-links { display: flex; gap: 30px; }
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: 0.3s;
+  }
+  .nav-links a:hover { color: var(--purple); }
+
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 120px 8% 60px;
+  }
+  .hero h1 {
+    font-size: clamp(2.2rem, 6vw, 4.5rem);
+    font-weight: 900;
+    margin-bottom: 20px;
+    line-height: 1.3;
+  }
+  .hero h1 span {
+    background: linear-gradient(90deg, var(--purple), var(--blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--muted);
+    max-width: 650px;
+    margin-bottom: 40px;
+  }
+  .badge {
+    display: inline-block;
+    padding: 8px 20px;
+    border: 1px solid var(--purple);
+    border-radius: 50px;
+    color: var(--purple);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    background: rgba(139,92,246,0.08);
+  }
+
+  .btn-group { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
+  .btn {
+    padding: 14px 32px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-primary {
+    background: linear-gradient(90deg, var(--purple), var(--blue));
+    color: white;
+  }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(139,92,246,0.4); }
+  .btn-outline {
+    border: 1.5px solid var(--border);
+    color: var(--text);
+  }
+  .btn-outline:hover { border-color: var(--purple); color: var(--purple); }
+
+  section { padding: 100px 8%; }
+  .section-title {
+    text-align: center;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 900;
+    margin-bottom: 15px;
+  }
+  .section-sub {
+    text-align: center;
+    color: var(--muted);
+    margin-bottom: 60px;
+    font-size: 1rem;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+  }
+  .project-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: 0.4s;
+    position: relative;
+  }
+  .project-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--purple);
+    box-shadow: 0 20px 50px rgba(139,92,246,0.15);
+  }
+  .project-thumb {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .thumb-1 { background: linear-gradient(135deg, #8b5cf6, #3b82f6); }
+  .thumb-2 { background: linear-gradient(135deg, #ef4444, #f59e0b); }
+  .thumb-3 { background: linear-gradient(135deg, #06b6d4, #8b5cf6); }
+
+  .project-body { padding: 25px; }
+  .project-body h3 {
+    font-size: 1.35rem;
+    margin-bottom: 12px;
+    font-weight: 800;
+  }
+  .project-body p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-bottom: 18px;
+    min-height: 70px;
+  }
+  .tech-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+  .tag {
+    background: rgba(139,92,246,0.12);
+    color: var(--purple);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid rgba(139,92,246,0.3);
+  }
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--blue);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: 0.3s;
+  }
+  .project-link:hover { color: var(--purple); gap: 10px; }
+
+  .skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .skill {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .skill:hover {
+    border-color: var(--purple);
+    color: var(--purple);
+    transform: translateY(-3px);
+  }
+  .skill-icon { font-size: 1.3rem; }
+
+  .contact-box {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 50px 30px;
+  }
+  .contact-box h3 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    font-weight: 900;
+  }
+  .contact-box p {
+    color: var(--muted);
+    margin-bottom: 30px;
+  }
+  .whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(90deg, #25D366, #128C7E);
+    color: white;
+    padding: 15px 35px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.05rem;
+    transition: 0.3s;
+  }
+  .whatsapp-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(37,211,102,0.4);
+  }
+
+  footer {
+    text-align: center;
+    padding: 30px;
+    color: var(--muted);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border);
+  }
+  footer span {
+    background: linear-gradient(90deg, var(--purple), var(--blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.7s ease;
+  }
+  .fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    nav { padding: 15px 6%; }
+    section { padding: 70px 6%; }
+    .hero { padding: 100px 6% 40px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Mina.Dev</div>
+  <div class="nav-links">
+    <a href="#home">الرئيسية</a>
+    <a href="#projects">المشاريع</a>
+    <a href="#skills">المهارات</a>
+    <a href="#contact">تواصل</a>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <span class="badge">👋 أهلاً بيك</span>
+  <h1>أنا <span>Mina Developer</span><br>مبرمج Frontend</h1>
+  <p>بحب أحوّل الأفكار لمواقع وألعاب تفاعلية. بدمج التصميم بالكود عشان أطلع تجربة نضيفة وسريعة.</p>
+  <div class="btn-group">
+    <a href="#projects" class="btn btn-primary">🚀 شوف شغلي</a>
+    <a href="#contact" class="btn btn-outline">📩 كلمني</a>
+  </div>
+</section>
+
+<section id="projects">
+  <h2 class="section-title fade-in">مشاريعي</h2>
+  <p class="section-sub fade-in">مجموعة من الأعمال اللي فخور بيها</p>
+
+  <div class="projects-grid">
+
+    <div class="project-card fade-in">
+      <div class="project-thumb thumb-1">🚗</div>
+      <div class="project-body">
+        <h3>CARZONE</h3>
+        <p>موقع لعرض السيارات بتصميم عصري، يعرض مجموعة متنوعة من السيارات الرياضية والفاخرة والعائلية والكهربائية مع الأسعار والمواصفات.</p>
+        <div class="tech-tags">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+        </div>
+        <a href="https://carzone-web.tiiny.site" target="_blank" class="project-link">زيارة الموقع ←</a>
+      </div>
+    </div>
+
+    <div class="project-card fade-in">
+      <div class="project-thumb thumb-2">🎯</div>
+      <div class="project-body">
+        <h3>لعبة الرماية</h3>
+        <p>لعبة رماية تفاعلية بـ 20 مستوى متدرج الصعوبة، تعتمد على دقة التصويب والسرعة، مع تحكم سلس بالماوس واللمس ونظام نقاط.</p>
+        <div class="tech-tags">
+          <span class="tag">JavaScript</span>
+          <span class="tag">Canvas</span>
+          <span class="tag">Game Dev</span>
+        </div>
+        <a href="https://game-steel-two-20.vercel.app" target="_blank" class="project-link">العب دلوقتي ←</a>
+      </div>
+    </div>
+
+    <div class="project-card fade-in">
+      <div class="project-thumb thumb-3">🚀</div>
+      <div class="project-body">
+        <h3>NEON RUSH</h3>
+        <p>لعبة فضائية بأسلوب نيون، تتحكم فيها بطائرة عبر الجويستك وتطلق النار على الأعداء. تضم 20 مستوى، نظام أرواح ونقاط وجدول مستويات تفاعلي.</p>
+        <div class="tech-tags">
+          <span class="tag">JavaScript</span>
+          <span class="tag">Canvas</span>
+          <span class="tag">Game Dev</span>
+        </div>
+        <a href="https://neno-rush.vercel.app" target="_blank" class="project-link">العب دلوقتي ←</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="skills">
+  <h2 class="section-title fade-in">المهارات</h2>
+  <p class="section-sub fade-in">التقنيات اللي بشتغل بيها</p>
+
+  <div class="skills-container">
+    <div class="skill fade-in"><span class="skill-icon">🌐</span> HTML5</div>
+    <div class="skill fade-in"><span class="skill-icon">🎨</span> CSS3</div>
+    <div class="skill fade-in"><span class="skill-icon">⚡</span> JavaScript</div>
+    <div class="skill fade-in"><span class="skill-icon">📱</span> Responsive Design</div>
+    <div class="skill fade-in"><span class="skill-icon">🎮</span> Canvas / Game Dev</div>
+    <div class="skill fade-in"><span class="skill-icon">🔧</span> Git & GitHub</div>
+    <div class="skill fade-in"><span class="skill-icon">▲</span> Vercel</div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-box fade-in">
+    <h3>عندك فكرة؟ كلمني 👋</h3>
+    <p>متاح للتعاون في المشاريع أو أي استفسار</p>
+    <a href="https://wa.me/201554416094" target="_blank" class="whatsapp-btn">
+      💬 تواصل على واتساب
+    </a>
+  </div>
+</section>
+
+<footer>
+  صُنع بـ ❤️ بواسطة <span>Mina Developer</span> © 2025
+</footer>
+
+<script>
+  const faders = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  faders.forEach(el => observer.observe(el));
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -4,7 +4,28 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mina Developer | Portfolio</title>
+
+<!-- SEO & Social -->
+<meta name="description" content="Mina Developer - مبرمج Frontend متخصص في HTML, CSS, JavaScript. شوف مشاريعي وأعمالي في تطوير المواقع والألعاب التفاعلية.">
+<meta name="keywords" content="Mina Developer, Frontend, Web Developer, HTML, CSS, JavaScript, Portfolio, مبرمج">
+<meta name="author" content="Mina Developer">
+<meta property="og:title" content="Mina Developer | Portfolio">
+<meta property="og:description" content="مبرمج Frontend - مواقع وألعاب تفاعلية">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://menamon713-bit.github.io">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mina Developer | Portfolio">
+<meta name="twitter:description" content="مبرمج Frontend - مواقع وألعاب تفاعلية">
+<meta name="theme-color" content="#08080c">
+
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -106,6 +127,7 @@
     font-size: 1.5rem; font-weight: 700;
     background: linear-gradient(90deg, var(--purple), var(--blue));
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
     position: relative;
   }
   .logo::after {
@@ -183,6 +205,7 @@
     background: linear-gradient(90deg, var(--purple), var(--blue), var(--purple));
     background-size: 200% auto;
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
     animation: gradientShift 3s linear infinite;
   }
   @keyframes gradientShift {
@@ -325,6 +348,7 @@
   .thumb-1 { background: linear-gradient(135deg, #8b5cf6, #3b82f6); }
   .thumb-2 { background: linear-gradient(135deg, #ef4444, #f59e0b); }
   .thumb-3 { background: linear-gradient(135deg, #06b6d4, #8b5cf6); }
+  .thumb-4 { background: linear-gradient(135deg, #f59e0b, #10b981); }
 
   .project-thumb .emoji {
     font-size: 4rem;
@@ -341,6 +365,7 @@
     font-size: 1.4rem; margin-bottom: 12px; font-weight: 800;
     background: linear-gradient(90deg, var(--purple), var(--blue));
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
   .project-body p {
     color: var(--muted); font-size: 0.95rem;
@@ -450,6 +475,7 @@
   footer span {
     background: linear-gradient(90deg, var(--purple), var(--blue));
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
     font-weight: 700;
   }
 
@@ -506,7 +532,7 @@
       <a href="#skills">المهارات</a>
       <a href="#contact">تواصل</a>
     </div>
-    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()">🌙</button>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" aria-label="تبديل الوضع">🌙</button>
   </div>
 </nav>
 
@@ -545,7 +571,7 @@
           <span class="tag">CSS</span>
           <span class="tag">JavaScript</span>
         </div>
-        <a href="https://carzone-web.tiiny.site" target="_blank" class="project-link">زيارة الموقع ←</a>
+        <a href="https://carzone-web.tiiny.site" target="_blank" rel="noopener" class="project-link">زيارة الموقع ←</a>
       </div>
     </div>
 
@@ -561,7 +587,7 @@
           <span class="tag">Canvas</span>
           <span class="tag">Game Dev</span>
         </div>
-        <a href="https://game-steel-two-20.vercel.app" target="_blank" class="project-link">العب دلوقتي ←</a>
+        <a href="https://game-steel-two-20.vercel.app" target="_blank" rel="noopener" class="project-link">العب دلوقتي ←</a>
       </div>
     </div>
 
@@ -577,26 +603,26 @@
           <span class="tag">Canvas</span>
           <span class="tag">Game Dev</span>
         </div>
-        <a href="https://neno-rush.vercel.app" target="_blank" class="project-link">العب دلوقتي ←</a>
+        <a href="https://neno-rush.vercel.app" target="_blank" rel="noopener" class="project-link">العب دلوقتي ←</a>
       </div>
     </div>
-<!-- DevKit Project -->
-<div class="project-card fade-in">
-  <div class="project-thumb thumb-4">
-    <span class="emoji">🛠️</span>
-  </div>
-  <div class="project-body">
-    <h3>DevKit</h3>
-    <p>مجموعة أدوات مجانية للمبرمجين: JSON, Base64, UUID, Timestamp, Password, Color Picker. تعمل في المتصفح بدون تسجيل.</p>
-    <div class="tech-tags">
-      <span class="tag">Next.js</span>
-      <span class="tag">React</span>
-      <span class="tag">TypeScript</span>
-      <span class="tag">Tailwind</span>
+
+    <div class="project-card fade-in">
+      <div class="project-thumb thumb-4">
+        <span class="emoji">🛠️</span>
+      </div>
+      <div class="project-body">
+        <h3>DevKit</h3>
+        <p>مجموعة أدوات مجانية للمبرمجين: JSON, Base64, UUID, Timestamp, Password, Color Picker. تعمل في المتصفح بدون تسجيل.</p>
+        <div class="tech-tags">
+          <span class="tag">Next.js</span>
+          <span class="tag">React</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">Tailwind</span>
+        </div>
+        <a href="https://devkit-omega-two.vercel.app" target="_blank" rel="noopener" class="project-link">زيارة الموقع ←</a>
+      </div>
     </div>
-    <a href="https://devkit-omega-two.vercel.app" target="_blank">زيارة الموقع ←</a>
-  </div>
-</div>
 
   </div>
 </section>
@@ -621,14 +647,14 @@
   <div class="contact-box fade-in">
     <h3>عندك فكرة؟ كلمني 👋</h3>
     <p>متاح للتعاون في المشاريع أو أي استفسار</p>
-    <a href="https://wa.me/201554416094" target="_blank" class="whatsapp-btn">
+    <a href="https://wa.me/201554416094" target="_blank" rel="noopener" class="whatsapp-btn">
       💬 تواصل على واتساب
     </a>
     <div class="socials">
-      <a href="https://github.com/menamon713-bit" target="_blank" class="social-icon" title="GitHub">
+      <a href="https://github.com/menamon713-bit" target="_blank" rel="noopener" class="social-icon" title="GitHub" aria-label="GitHub">
         <svg viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6.1-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.3 2.8.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
       </a>
-      <a href="https://wa.me/201554416094" target="_blank" class="social-icon" title="WhatsApp">
+      <a href="https://wa.me/201554416094" target="_blank" rel="noopener" class="social-icon" title="WhatsApp" aria-label="WhatsApp">
         <svg viewBox="0 0 24 24"><path d="M.06 24l1.7-6.2A11.9 11.9 0 1 1 12 24a11.9 11.9 0 0 1-5.7-1.4L.06 24zM6.6 20l.4.2a9.9 9.9 0 1 0-3-2.9l.2.4-.9 3.4 3.3-1.1zM17.5 14.4c-.3-.1-1.7-.8-2-.9-.2-.1-.4-.1-.5.1-.2.3-.6.9-.7 1-.1.2-.3.2-.5.1-.3-.1-1.1-.4-2.1-1.3-.8-.7-1.3-1.5-1.4-1.8-.1-.2 0-.4.1-.5l.4-.4c.1-.2.2-.3.2-.4.1-.2 0-.3 0-.4l-.9-2c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 .9-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3 4.7 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.5-.3z"/></svg>
       </a>
     </div>
@@ -744,4 +770,4 @@
 </script>
 
 </body>
-   </html>
+</html>
